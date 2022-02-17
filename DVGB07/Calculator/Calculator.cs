@@ -5,11 +5,11 @@ namespace Calculator
 {
     public partial class Calculator : Form
     {
-        private string currentOperation = "";
-        private string val1 = "";
-        private string val2 = "";
-        private string memoryVal = "";
-        private string memoryOperation = "";
+        private string _currentOperation = "";
+        private string _memoryOperation = "";
+        private string _memoryVal = "";
+        private string _val1 = "";
+        private string _val2 = "";
 
         public Calculator()
         {
@@ -20,48 +20,40 @@ namespace Calculator
         {
             var btnPressed = sender as Button;
             lbl_calculation.Text += btnPressed.Text;
-            if (currentOperation == "")
-                val1 += btnPressed.Text;
+            if (_currentOperation == "")
+                _val1 += btnPressed.Text;
             else
-                val2 += btnPressed.Text;
+                _val2 += btnPressed.Text;
         }
 
         private void Arithmetic_Clicked(object sender, EventArgs args)
         {
             var btnPressed = sender as Button;
 
-            if (currentOperation != "" && val2 == "")
-            {
+            if (_currentOperation != "" && _val2 == "")
                 lbl_calculation.Text =
                     lbl_calculation.Text.Substring(0, lbl_calculation.Text.Length - 1);
-            }
 
             lbl_calculation.Text += btnPressed.Text;
 
-            if (currentOperation != "" && val2 != "")
-            {
-                UpdateResult();
-            }
+            if (_currentOperation != "" && _val2 != "") UpdateResult();
 
-            currentOperation = btnPressed.Text;
+            _currentOperation = btnPressed.Text;
         }
 
         private void UpdateResult()
         {
-            if (val2 == "0" && currentOperation == @"/")
-            {
-                ShowError("Det går inte att dela med 0");
-            }
+            if (_val2 == "0" && _currentOperation == @"/") ShowError("Det går inte att dela med 0");
 
-            memoryVal = val2;
-            memoryOperation = currentOperation;
+            _memoryVal = _val2;
+            _memoryOperation = _currentOperation;
 
             try
             {
                 var result = DoCalculation();
                 lbl_result.Text = result.ToString();
-                val1 = result.ToString();
-                val2 = "";
+                _val1 = result.ToString();
+                _val2 = "";
             }
             catch (Exception)
             {
@@ -79,9 +71,8 @@ namespace Calculator
         private int DoCalculation()
         {
             var result = 0;
-            if (int.TryParse(val1, out var leftVal) && int.TryParse(val2, out var rightValue))
-            {
-                switch (currentOperation)
+            if (int.TryParse(_val1, out var leftVal) && int.TryParse(_val2, out var rightValue))
+                switch (_currentOperation)
                 {
                     case "+":
                     {
@@ -104,35 +95,32 @@ namespace Calculator
                         break;
                     }
                 }
-            }
             else
-            {
                 throw new ArithmeticException("Number outside of bounds");
-            }
 
             return result;
         }
 
-        private void sum_clicked(object sender, EventArgs args)
+        private void Sum_clicked(object sender, EventArgs args)
         {
-            if (currentOperation == "")
+            if (_currentOperation == "")
             {
-                currentOperation = memoryOperation;
-                val2 = memoryVal;
+                _currentOperation = _memoryOperation;
+                _val2 = _memoryVal;
             }
 
             UpdateResult();
-            currentOperation = "";
+            _currentOperation = "";
         }
 
-        private void clear(object sender, EventArgs args)
+        private void Clear(object sender, EventArgs args)
         {
             lbl_error.Visible = false;
             lbl_result.Text = "0";
             lbl_calculation.Text = "";
-            currentOperation = "";
-            val1 = "";
-            val2 = "";
+            _currentOperation = "";
+            _val1 = "";
+            _val2 = "";
         }
     }
 }

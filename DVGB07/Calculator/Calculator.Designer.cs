@@ -213,7 +213,7 @@ namespace Calculator
             this.btn_equal.TabIndex = 18;
             this.btn_equal.Text = "=";
             this.btn_equal.UseVisualStyleBackColor = true;
-            this.btn_equal.Click += new System.EventHandler(this.sum_clicked);
+            this.btn_equal.Click += new System.EventHandler(this.Sum_clicked);
             // 
             // btn_0
             // 
@@ -235,7 +235,7 @@ namespace Calculator
             this.btn_clear.TabIndex = 16;
             this.btn_clear.Text = "C";
             this.btn_clear.UseVisualStyleBackColor = true;
-            this.btn_clear.Click += new System.EventHandler(this.clear);
+            this.btn_clear.Click += new System.EventHandler(this.Clear);
             // 
             // lbl_calculation
             // 
