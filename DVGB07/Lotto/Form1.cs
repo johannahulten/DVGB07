@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -8,9 +7,9 @@ namespace Lotto
 {
     public partial class Form1 : Form
     {
-        private List<int> _guesses = new List<int>();
-        private TextBox[] _guessBoxes;
-        private int iterations;
+        private readonly List<int> _guesses = new List<int>();
+        private readonly TextBox[] _guessBoxes;
+        private int _iterations;
         private int[] _results = new int[3];
 
         public Form1()
@@ -20,7 +19,7 @@ namespace Lotto
             _guessBoxes = new[] { txb_nbr_1, txb_nbr_2, txb_nbr_3, txb_nbr_4, txb_nbr_5, txb_nbr_6, tbx_nbr_7 };
         }
 
-        private void startBtn_Click(object sender, EventArgs e)
+        private void StartBtn_Click(object sender, EventArgs e)
         {
             pan_input.Enabled = false;
             pan_result.Visible = false;
@@ -36,7 +35,7 @@ namespace Lotto
             var nbrOf7Correct = 0;
             var random = new Random();
 
-            for (var i = 0; i < iterations; i++)
+            for (var i = 0; i < _iterations; i++)
             {
                 var row = new List<int>();
 
@@ -79,7 +78,7 @@ namespace Lotto
             lbl_7_correct.Text = nbrOf7Correct.ToString();
         }
 
-        private void guess_Changed(object sender, EventArgs e)
+        private void Guess_Changed(object sender, EventArgs e)
         {
             lbl_error_guess.Visible = false;
             _guesses.Clear();
@@ -100,7 +99,7 @@ namespace Lotto
 
         private void UpdateStartButton()
         {
-            if (_guesses.Count == 7 && iterations > 0)
+            if (_guesses.Count == 7 && _iterations > 0)
                 start_btn.Enabled = true;
         }
 
@@ -134,7 +133,7 @@ namespace Lotto
         private void iterations_Changed(object sender, EventArgs args)
         {
             lbl_error_iterations.Visible = false;
-            iterations = 0;
+            _iterations = 0;
             DisableStartButton();
 
             if (int.TryParse(txb_iterations.Text, out var nbrOfIterations))
@@ -143,7 +142,7 @@ namespace Lotto
                     ShowIterationError("Antalet dragningar måste vara ett positivt heltal, mindre än " + int.MaxValue);
                 else
                 {
-                    iterations = nbrOfIterations;
+                    _iterations = nbrOfIterations;
                     UpdateStartButton();
                 }
             }

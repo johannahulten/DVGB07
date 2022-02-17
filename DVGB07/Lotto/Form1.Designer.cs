@@ -193,7 +193,7 @@ namespace Lotto
             this.tbx_nbr_7.Size = new System.Drawing.Size(88, 26);
             this.tbx_nbr_7.TabIndex = 25;
             this.tbx_nbr_7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbx_nbr_7.TextChanged += new System.EventHandler(this.guess_Changed);
+            this.tbx_nbr_7.TextChanged += new System.EventHandler(this.Guess_Changed);
             // 
             // start_btn
             // 
@@ -206,7 +206,7 @@ namespace Lotto
             this.start_btn.TabIndex = 28;
             this.start_btn.Text = "Starta Lotto";
             this.start_btn.UseVisualStyleBackColor = true;
-            this.start_btn.Click += new System.EventHandler(this.startBtn_Click);
+            this.start_btn.Click += new System.EventHandler(this.StartBtn_Click);
             // 
             // txb_iterations
             // 
@@ -236,7 +236,7 @@ namespace Lotto
             this.txb_nbr_2.Size = new System.Drawing.Size(88, 26);
             this.txb_nbr_2.TabIndex = 20;
             this.txb_nbr_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txb_nbr_2.TextChanged += new System.EventHandler(this.guess_Changed);
+            this.txb_nbr_2.TextChanged += new System.EventHandler(this.Guess_Changed);
             // 
             // txb_nbr_3
             // 
@@ -246,7 +246,7 @@ namespace Lotto
             this.txb_nbr_3.Size = new System.Drawing.Size(88, 26);
             this.txb_nbr_3.TabIndex = 21;
             this.txb_nbr_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txb_nbr_3.TextChanged += new System.EventHandler(this.guess_Changed);
+            this.txb_nbr_3.TextChanged += new System.EventHandler(this.Guess_Changed);
             // 
             // txb_nbr_4
             // 
@@ -256,7 +256,7 @@ namespace Lotto
             this.txb_nbr_4.Size = new System.Drawing.Size(88, 26);
             this.txb_nbr_4.TabIndex = 22;
             this.txb_nbr_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txb_nbr_4.TextChanged += new System.EventHandler(this.guess_Changed);
+            this.txb_nbr_4.TextChanged += new System.EventHandler(this.Guess_Changed);
             // 
             // txb_nbr_5
             // 
@@ -266,7 +266,7 @@ namespace Lotto
             this.txb_nbr_5.Size = new System.Drawing.Size(88, 26);
             this.txb_nbr_5.TabIndex = 23;
             this.txb_nbr_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txb_nbr_5.TextChanged += new System.EventHandler(this.guess_Changed);
+            this.txb_nbr_5.TextChanged += new System.EventHandler(this.Guess_Changed);
             // 
             // txb_nbr_6
             // 
@@ -276,7 +276,7 @@ namespace Lotto
             this.txb_nbr_6.Size = new System.Drawing.Size(88, 26);
             this.txb_nbr_6.TabIndex = 24;
             this.txb_nbr_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txb_nbr_6.TextChanged += new System.EventHandler(this.guess_Changed);
+            this.txb_nbr_6.TextChanged += new System.EventHandler(this.Guess_Changed);
             // 
             // txb_nbr_1
             // 
@@ -287,7 +287,7 @@ namespace Lotto
             this.txb_nbr_1.Size = new System.Drawing.Size(88, 26);
             this.txb_nbr_1.TabIndex = 19;
             this.txb_nbr_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txb_nbr_1.TextChanged += new System.EventHandler(this.guess_Changed);
+            this.txb_nbr_1.TextChanged += new System.EventHandler(this.Guess_Changed);
             // 
             // label1
             // 
