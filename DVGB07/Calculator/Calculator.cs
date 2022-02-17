@@ -8,6 +8,8 @@ namespace Calculator
         private string currentOperation = "";
         private string val1 = "";
         private string val2 = "";
+        private string memoryVal = "";
+        private string memoryOperation = "";
 
         public Calculator()
         {
@@ -50,6 +52,9 @@ namespace Calculator
             {
                 ShowError("Det går inte att dela med 0");
             }
+
+            memoryVal = val2;
+            memoryOperation = currentOperation;
 
             try
             {
@@ -110,8 +115,14 @@ namespace Calculator
 
         private void sum_clicked(object sender, EventArgs args)
         {
-          UpdateResult();
-          currentOperation = "";
+            if (currentOperation == "")
+            {
+                currentOperation = memoryOperation;
+                val2 = memoryVal;
+            }
+
+            UpdateResult();
+            currentOperation = "";
         }
 
         private void clear(object sender, EventArgs args)
