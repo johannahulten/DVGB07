@@ -309,7 +309,7 @@ namespace Lotto
             this.Controls.Add(this.pan_result);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Lotto";
             this.pan_result.ResumeLayout(false);
             this.pan_result.PerformLayout();
             this.pan_input.ResumeLayout(false);
