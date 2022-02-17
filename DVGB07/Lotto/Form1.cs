@@ -18,21 +18,18 @@ namespace Lotto
             InitializeComponent();
            
             _guessBoxes = new[] { txb_nbr_1, txb_nbr_2, txb_nbr_3, txb_nbr_4, txb_nbr_5, txb_nbr_6, tbx_nbr_7 };
-            gameRunner.WorkerReportsProgress = true;
         }
 
         private void startBtn_Click(object sender, EventArgs e)
         {
-            lbl_working.Visible = true;
             pan_input.Enabled = false;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = iterations;
-            gameRunner.RunWorkerAsync();
+            pan_result.Visible = false;
+            RunGames();
 
             UpdateWindow(_results[0], _results[1], _results[2]);
         }
 
-        private void RunGames(object sender, DoWorkEventArgs e)
+        private void RunGames()
         {
             var nbrOf5Correct = 0;
             var nbrOf6Correct = 0;
@@ -80,11 +77,6 @@ namespace Lotto
             lbl_5_correct.Text = nbrOf5Correct.ToString();
             lbl_6_correct.Text = nbrOf6Correct.ToString();
             lbl_7_correct.Text = nbrOf7Correct.ToString();
-        }
-
-        private void UpdateProgressOfRunGames(object sender, ProgressChangedEventArgs e)
-        {
-            progressBar1.Value = e.ProgressPercentage;
         }
 
         private void guess_Changed(object sender, EventArgs e)

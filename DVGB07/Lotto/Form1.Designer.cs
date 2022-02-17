@@ -51,9 +51,6 @@ namespace Lotto
             this.txb_nbr_6 = new System.Windows.Forms.TextBox();
             this.txb_nbr_1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbl_working = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.gameRunner = new System.ComponentModel.BackgroundWorker();
             this.pan_result.SuspendLayout();
             this.pan_input.SuspendLayout();
             this.SuspendLayout();
@@ -303,36 +300,12 @@ namespace Lotto
             this.label1.TabIndex = 18;
             this.label1.Text = "Din lottorad: ";
             // 
-            // lbl_working
-            // 
-            this.lbl_working.AutoSize = true;
-            this.lbl_working.Location = new System.Drawing.Point(479, 301);
-            this.lbl_working.Name = "lbl_working";
-            this.lbl_working.Size = new System.Drawing.Size(174, 20);
-            this.lbl_working.TabIndex = 19;
-            this.lbl_working.Text = "Genererar dragningar...";
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(301, 333);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(488, 29);
-            this.progressBar1.TabIndex = 21;
-            // 
-            // gameRunner
-            // 
-            this.gameRunner.WorkerReportsProgress = true;
-            this.gameRunner.DoWork += new System.ComponentModel.DoWorkEventHandler(this.RunGames);
-            this.gameRunner.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.UpdateProgressOfRunGames);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2000, 1153);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.pan_input);
-            this.Controls.Add(this.lbl_working);
             this.Controls.Add(this.pan_result);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
@@ -342,7 +315,6 @@ namespace Lotto
             this.pan_input.ResumeLayout(false);
             this.pan_input.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -369,9 +341,6 @@ namespace Lotto
         private System.Windows.Forms.TextBox txb_nbr_6;
         private System.Windows.Forms.TextBox txb_nbr_1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbl_working;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.ComponentModel.BackgroundWorker gameRunner;
     }
 }
 
